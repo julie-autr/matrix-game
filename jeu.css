@@ -2,6 +2,9 @@
     font-family: 'Raleway';
     src: url('polices/Raleway-Regular.ttf'); 
 }
+body{
+    background-color: beige;
+}
 #regles{
     display: block;
     text-align: center;
@@ -37,4 +40,5 @@
     border: 2px solid black;
     width: 150px;
     height: 150px;
+    background-color: white;
 }
