@@ -7,8 +7,8 @@
     </head>
     <body>
         <div id="affichageScore">
-            <p>Meilleur score</p>
-            <p id="score"> </p>
+            <p id="meilleurscore">Meilleur score</p>
+            <p id="score"></p>
         </div>
         <div id="regles">
             <h1>Le jeu de la matrice</h1>
@@ -19,21 +19,22 @@
             <button type="button" id="bouton">Commencer !</button>
         </div>
         <div id="grille">
-            <div class="ligne">
+            <div class="colonne1">
                 <div class="case"></div>
                 <div class="case"></div>
                 <div class="case"></div>
             </div>
-            <div class="ligne">
+            <div class="colonne2">
                 <div class="case"></div>
                 <div class="case"></div>
                 <div class="case"></div>
             </div>
-            <div class="ligne">
+            <div class="colonne3">
                 <div class="case"></div>
                 <div class="case"></div>
                 <div class="case"></div>
             </div>
         </div>
+        <div id="victoire"></div>
         <script src="script.js"></script>
     </body>

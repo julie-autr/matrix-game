@@ -3,13 +3,31 @@
     src: url('polices/Raleway-Regular.ttf'); 
 }
 body{
-    background-color: beige;
-}
-#regles{
+    background-color: #FFEDFB;
     display: block;
     text-align: center;
     font-family: Raleway;
     margin: 20px;
+}
+#affichageScore{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 20px ;
+    left: 20px ;
+    padding: 0px 10px 0px 10px;
+    background-color: #FF00C5;
+    color: white;
+    border-radius: 10px;
+}
+#meilleurscore{
+    margin: 0px;
+    padding: 5px 0px 0px 0px;
+}
+#score{
+    margin: 0px;
+    padding: 0px 0px 5px 0px;
+
 }
 #regles h1{
     font-style: italic;
@@ -22,7 +40,14 @@ body{
 #regles p{
     margin-top: 0%;
 }
-
+#bouton{
+    font-size: medium;
+    background: linear-gradient(#FF00C5,#D50BA7);
+    color: white;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
 
 #grille{
     display: flex;
@@ -30,7 +55,7 @@ body{
     padding: 0px;
     margin: 0px;
 }
-.ligne{
+.colonne1,.colonne2,.colonne3{
     display: flex;
     flex-direction: column;
     margin: 0px;
