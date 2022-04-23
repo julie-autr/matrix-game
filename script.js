@@ -56,6 +56,7 @@ for (var i=0;i<cases.length;i++){
     cases[i].addEventListener('click',function(event){
         const target = event.target;
         var indice=liste.indexOf(target);
+        console.log(event, target, cases, liste, indice)
         var parent=target.parentElement;
         compteurcoups+=1;
 
