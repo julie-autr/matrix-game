@@ -1,0 +1,261 @@
+/* jeu.css - Design moderne compatible avec votre HTML existant */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: block;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    position: relative;
+}
+
+#affichageScore {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#affichageScore:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+#meilleurscore {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+    font-weight: 400;
+    color: #666;
+}
+
+#score {
+    margin: 0;
+    padding: 5px 0 0 0;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #667eea;
+    text-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+}
+
+#regles {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0 auto 40px auto;
+    max-width: 70% ;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#regles h1 {
+    font-style: normal;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#regles h2 {
+    margin-bottom: 10px;
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #444;
+}
+
+#regles p {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666;
+}
+
+#bouton {
+    font-size: 1.1em;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 35px;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#bouton:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+}
+
+#bouton:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#grille {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 40px 0;
+    perspective: 1000px;
+}
+
+.colonne1, .colonne2, .colonne3 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 4px;
+}
+
+.case {
+    margin: 4px;
+    border: 3px solid #667eea;
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.case:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+}
+
+
+.case:active {
+    transform: translateY(-2px) scale(0.98);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+
+/* Cases avec l'attribut state */
+.case[state="off"] {
+    background-color: black;
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.2);
+}
+
+.case[state="off"]:hover {
+    box-shadow: 0 15px 35px rgba(231, 76, 60, 0.4);
+}
+
+.case[state="on"] {
+    background-color: white;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+.case[state="on"]:hover {
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+}
+
+
+
+#victoire {
+    margin-top: 30px;
+    padding: 25px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(46, 204, 113, 0.3);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+#victoire:not(:empty) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    #affichageScore {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-bottom: 20px;
+        align-self: flex-start;
+    }
+    
+    #regles {
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+    
+    #regles h1 {
+        font-size: 2em;
+    }
+    
+    .case {
+        width: 90px;
+        height: 90px;
+        margin: 3px;
+    }
+    
+    .colonne1, .colonne2, .colonne3 {
+        margin: 0 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    #regles {
+        padding: 20px;
+    }
+    
+    #regles h1 {
+        font-size: 1.8em;
+    }
+    
+    .case {
+        width: 75px;
+        height: 75px;
+        margin: 2px;
+    }
+    
+    #bouton {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}

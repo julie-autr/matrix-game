@@ -1,30 +1,36 @@
 const cases = document.querySelectorAll('div.case');
+
+var jeuActif = false;
 var compteurcoups=0;
 
 document.getElementById("affichageScore").style.display = 'none';
+document.getElementById("victoire").style.display = 'none';
 
 document.getElementById("bouton").addEventListener('click',function(){
+    jeuActif = true;
     compteurcoups=0;
+    document.getElementById("victoire").style.display = 'none';
     document.getElementById("victoire").innerText='';
-    document.getElementById("bouton").innerText="Rejouer !";
+    document.getElementById("bouton").innerText="Rejouer";
     for (var i=0;i<cases.length;i++) {
         let nb=Math.random();
         if (nb>0.5){
-            cases[i].style.backgroundColor="black";
+            cases[i].setAttribute('state', 'on');
         }
         else{
-            cases[i].style.backgroundColor="white";
-        }
-     }    
+            cases[i].setAttribute('state', 'off');
+        } 
+    }
 }
 );
 
+
 function changecolor(i){ //i est l'indice dans la liste
-    if (cases[i].style.backgroundColor=='white'){
-        cases[i].style.backgroundColor='black';
+    if (cases[i].getAttribute('state')=='off'){
+        cases[i].setAttribute('state', 'on');
     }
-    else if (cases[i].style.backgroundColor=='black'){
-        cases[i].style.backgroundColor='white';
+    else if (cases[i].getAttribute('state')=='on'){
+        cases[i].setAttribute('state', 'off');
     }
 };
 
@@ -33,16 +39,19 @@ var meilleurscore=100;
 function testvictoire(coups){
     compteur=0;
     for (var i=0;i<cases.length;i++) {
-        if (cases[i].style.backgroundColor=='white'){compteur+=1;}
+        if (cases[i].getAttribute('state')=='off'){compteur+=1;}
     };
     if (compteur==9){
+        jeuActif = false; 
         if (coups<meilleurscore){
             meilleurscore=coups;
+            document.getElementById("victoire").style.display = 'flex';
             document.getElementById("victoire").innerText='Bravo ! Vous avez gagné en '+coups+' coups ! C\'est votre meilleur score !';
             document.getElementById("score").innerText=coups;
             document.getElementById("affichageScore").style.display = 'flex';
         }
         else {
+            document.getElementById("victoire").style.display = 'flex';
             document.getElementById("victoire").innerText='Bravo ! Vous avez gagné en '+coups+' coups ! Rejouez pour battre votre score !';
         }
     }
@@ -54,6 +63,8 @@ function testvictoire(coups){
 const liste=Array.from(cases)
 for (var i=0;i<cases.length;i++){
     cases[i].addEventListener('click',function(event){
+        if(!jeuActif) return;
+
         const target = event.target;
         var indice=liste.indexOf(target);
         console.log(event, target, cases, liste, indice)
