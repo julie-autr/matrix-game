@@ -20,7 +20,7 @@ document.getElementById("bouton").addEventListener('click',function(){
         else{
             cases[i].setAttribute('state', 'off');
         } 
-    }
+    } 
 }
 );
 
